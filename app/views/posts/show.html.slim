@@ -1,0 +1,12 @@
+.col-md-12 
+	p Title
+.col-md-12 
+	= @post.title
+.col-md-12 
+	p Text
+.col-md-12
+	= @post.text
+.col-md-6
+	=link_to 'All post', posts_path
+.col-md-6
+	=link_to 'New post', new_post_path

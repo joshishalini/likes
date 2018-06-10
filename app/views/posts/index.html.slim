@@ -1,0 +1,13 @@
+- @post.each do |post|
+	table.table
+		thead
+			tr
+				th Title
+				th Text
+				th Action
+		tbody
+			tr
+				td = post.title
+				td = post.text
+				td 
+					=link_to 'New post', new_post_path
