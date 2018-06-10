@@ -7,7 +7,8 @@ class LikesController < ApplicationController
 			}
 		@likes = Like.create(likes_params)
 		unless @likes.errors.present?
-			p @response = LiveNotifications::W3socket.push('like', 'event-name-'+post_id, {from: current_user.id})
+			p @response = LiveNotifications::W3socket.push('like', 'event-name-'+current_user.id, current_user.id)
+			p "-------------------"
 			render json: @response
 
 		else

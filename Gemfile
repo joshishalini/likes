@@ -34,6 +34,7 @@ gem 'devise'
 
 gem 'slim'
 gem 'live_notifications', git: "git://github.com/Afzal7/live_notifications.git"
+gem "rest-client"
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
