@@ -11,3 +11,4 @@
 				td = post.text
 				td 
 					=link_to 'New post', new_post_path
+					button.btn#like data-post-id='#{post.id}' type="button" Like

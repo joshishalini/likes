@@ -33,6 +33,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'devise'
 
 gem 'slim'
+gem 'live_notifications', git: "git://github.com/Afzal7/live_notifications.git"
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development

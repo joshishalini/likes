@@ -1,3 +1,9 @@
+GIT
+  remote: git://github.com/Afzal7/live_notifications.git
+  revision: 19151b585b091886ef2f9df83eb69b9360ad2eb2
+  specs:
+    live_notifications (0.1.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -198,6 +204,7 @@ DEPENDENCIES
   devise
   jbuilder (~> 2.5)
   listen (>= 3.0.5, < 3.2)
+  live_notifications!
   puma (~> 3.7)
   rails (~> 5.1.6)
   sass-rails (~> 5.0)
