@@ -22,8 +22,11 @@
           <h2 class="navbar-brand">Like</h2>
         </div>
           <ul class="nav">
-            <li><%= link_to('Login', new_user_session_path) %></li>
+            <% if user_signed_in? %>
             <li><%= link_to "Sign out", destroy_user_session_path, :method => :delete %></li>
+            <% else %>
+            <li><%= link_to('Login', new_user_session_path) %></li>
+            <% end %>
           </ul>
       </div>
     </nav>
