@@ -4,11 +4,14 @@
 				th Title
 				th Text
 				th Action
+				th=link_to 'New post', new_post_path
 		- @post.each do |post|
 			tbody
 				tr
 					td = post.title
 					td = post.text
 					td 
-						=link_to 'New post', new_post_path
-						button.btn#like data-post-id='#{post.id}' type="button" Like
+						-if current_user.likes.collect(&:post_id).include?(post.id).present?
+							button.btn.like data-post-id='#{post.id}' id='#{post.id}' type="button" disabled="" Liked
+						-else
+							button.btn.like data-post-id='#{post.id}' id='#{post.id}' type="button" Like

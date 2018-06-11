@@ -3,7 +3,7 @@ class LikesController < ApplicationController
 		post_id = params[:id]
 		@post = Post.find(params[:id])
 		p @post.user.id
-		user = current_user.id.to_s
+		user = @post.user.id.to_s
 		likes_params = { 
 				user_id: current_user.id,
 				post_id: post_id
