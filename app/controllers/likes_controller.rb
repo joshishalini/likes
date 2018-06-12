@@ -1,4 +1,5 @@
 class LikesController < ApplicationController
+	skip_before_action :verify_authenticity_token
 	def save_like
 		post_id = params[:id]
 		@post = Post.find(params[:id])
@@ -10,7 +11,7 @@ class LikesController < ApplicationController
 			}
 		@likes = Like.create(likes_params)
 		unless @likes.errors.present?
-			p@response = LiveNotifications::W3socket.push('like', 'event-name-'+user, {from: current_user.email, to: @post.user.id})
+			p @response = LiveNotifications::W3socket.push('like', 'event-name-'+user, {from: current_user.email, to: @post.user.id})
 			render json: @response
 
 		else

@@ -1,12 +1,16 @@
 =form_for @post do |f|
 	.col-md-12
-	  .form-group
-  		label.label-control  Title
-  		= f.text_field :title, class: "form-control", placeholder:"Title", required:"" 
+		.form-group
+			label.label-control  Title
+			= f.text_field :title, class: "form-control", placeholder:"Title", required:"" 
 	.col-md-12
-	  .form-group
-      label.label-control Body
-      = f.text_field :text, class: "form-control", placeholder:"Text"
+		.form-group
+			label.label-control Body
+			= f.text_area :text, class: "form-control", placeholder:"Text"
+	.col-md-12
+		.form-group
+			label.label-control Image
+			= f.file_field :img 
 	.col-md-12
 		.form-group
 			= f.submit "Submit", class: " btn btn-primary" 

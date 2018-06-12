@@ -5,7 +5,8 @@ $(document).on('click','.like',function(){
     $.post('/likes/'+post_id+'/save_like',function(response){
     	console.log(response);
     	$('#'+post_id).attr('disabled','disabled');
-    	$('#'+post_id).html('Liked');
+      $('#'+post_id).children().addClass('red');
+      $('#'+post_id).children().removeClass('grey');
     });
 }); 
 

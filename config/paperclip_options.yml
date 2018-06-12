@@ -1,0 +1,13 @@
+development:
+  :post:
+    :img:
+      # :storage: !ruby/symbol s3
+      # :s3_protocol: "https"
+      # :s3_credentials:
+      #   <<: *default_settings
+      :styles:
+        :medium: '500x500#'
+      :default_url: '/missing.png'
+      :path:
+      :convert_options:
+        :all: '-strip -auto-orient -colorspace sRGB'

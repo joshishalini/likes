@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
 	def index
-		@post = Post.all
+		@post = Post.all.order("created_at DESC")
 	end
 
 	def new
@@ -11,7 +11,7 @@ class PostsController < ApplicationController
 		@post = current_user.posts.build(posts_params)
 		if @post.save
 			p "============="
-			redirect_to post_path(@post)
+			redirect_to posts_path
 		else
 			p "---------------------------"
 			render 'new'
@@ -24,7 +24,7 @@ class PostsController < ApplicationController
 
 	private
 		def posts_params
-			params.require(:post).permit(:title,:text)
+			params.require(:post).permit(:title,:text,:img)
 		end
 
 end

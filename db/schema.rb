@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180610093053) do
+ActiveRecord::Schema.define(version: 20180612070836) do
 
   create_table "likes", force: :cascade do |t|
     t.integer "user_id"
@@ -25,6 +25,10 @@ ActiveRecord::Schema.define(version: 20180610093053) do
     t.text "text"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "img_file_name"
+    t.string "img_content_type"
+    t.integer "img_file_size"
+    t.datetime "img_updated_at"
   end
 
   create_table "users", force: :cascade do |t|

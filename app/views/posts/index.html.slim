@@ -1,17 +1,48 @@
-	table.table
-		thead
-			tr
-				th Title
-				th Text
-				th Action
-				th=link_to 'Create post', new_post_path
-		- @post.each do |post|
-			tbody
-				tr
-					td = post.title
-					td = post.text
-					td 
-						-if current_user.likes.collect(&:post_id).include?(post.id).present?
-							button.btn.like data-post-id='#{post.id}' id='#{post.id}' type="button" disabled="" Liked
-						-else
-							button.btn.like data-post-id='#{post.id}' id='#{post.id}' type="button" Like
+=link_to 'Create post', new_post_path
+- @post.each do |post|
+	.container
+		.card-post
+			.row
+				.col-xs-3.col-sm-2
+					=image_tag "user"
+				.info-user.col-xs-9.col-sm-10 
+					h3 = post.user.email
+					p = time_ago_in_words(post.created_at)
+			.row
+				.col-sm-8.col-sm-offset-2.data-post
+					h3 = post.title
+					p = post.text
+			-if post.img.present?
+				.row
+					 .col-sm-8.col-sm-offset-2.data-post
+						= image_tag post.img.url, class: "img-post"
+			.row
+				.reaction
+					-if current_user.likes.collect(&:post_id).include?(post.id).present?
+						button.like data-post-id='#{post.id}' id='#{post.id}' disabled=""
+							i.fa.fa-heart.red
+					-else
+						button.like data-post-id='#{post.id}' id='#{post.id}'
+							i.fa.fa-heart.grey
+
+
+
+
+		
+/ table.table
+/ 	thead
+/ 		tr
+/ 			th Title
+/ 			th Text
+/ 			th Action
+/ 			th=link_to 'Create post', new_post_path
+/ 		- @post.each do |post|
+/ 			tbody
+/ 				tr
+/ 					td = post.title
+/ 					td = post.text
+/ 					td 
+/ 						-if current_user.likes.collect(&:post_id).include?(post.id).present?
+/ 							button.btn.like data-post-id='#{post.id}' id='#{post.id}' type="button" disabled="" Liked
+/ 						-else
+/ 							button.btn.like data-post-id='#{post.id}' id='#{post.id}' type="button" Like

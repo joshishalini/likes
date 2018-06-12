@@ -6,6 +6,7 @@
 	p Text
 .col-md-12
 	= @post.text
+	= image_tag @post.img.url
 .col-md-6
 	=link_to 'All post', posts_path
 .col-md-6
